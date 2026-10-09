@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #111111;
+  --color-ivory: #F5F1E8;
+  --color-coffee: #5A3825;
+  --color-espresso: #2A1B16;
+  --color-concrete: #B8B4AD;
+  --color-korean-red: #A63D32;
+  --color-champagne: #C8B58A;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    selection-background-color: #A63D32;
+    selection-color: #ffffff;
+  }
+
+  ::selection {
+    background-color: #A63D32;
+    color: #ffffff;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8B4AD;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5A3825;
+}
+
+/* Holographic Foil Card Effect */
+.holographic-sheen {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(200, 181, 138, 0.2) 25%,
+    rgba(166, 61, 50, 0.15) 50%,
+    rgba(200, 181, 138, 0.3) 75%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  background-size: 200% 200%;
+  animation: holoSheen 6s ease infinite alternate;
+}
+
+@keyframes holoSheen {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(245, 241, 232, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.glass-dock {
+  background: rgba(17, 17, 17, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(200, 181, 138, 0.2);
+}
+
+/* 3D Card Flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
