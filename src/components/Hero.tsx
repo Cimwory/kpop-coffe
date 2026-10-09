@@ -58,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({
           <span className="text-seoul-concrete">•</span>
           <div className="flex items-center gap-1 font-semibold text-ink-black">
             <Clock className="w-3 h-3 text-coffee-brown" />
-            <span>
+            <span suppressHydrationWarning>
               {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:
               {String(timeLeft.seconds).padStart(2, '0')}
             </span>

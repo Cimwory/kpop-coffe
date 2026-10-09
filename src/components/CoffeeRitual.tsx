@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { COFFEE_PRODUCTS, CoffeeProduct } from '@/data/coffeeData';
+import { COFFEE_PRODUCTS, CoffeeProduct, formatKRW } from '@/data/coffeeData';
 import Image from 'next/image';
 import { Plus, Check, SlidersHorizontal, BookOpen, Flame, Sparkles } from 'lucide-react';
 
@@ -181,8 +181,8 @@ export const CoffeeRitual: React.FC<CoffeeRitualProps> = ({
                       <span className="font-serif text-2xl font-bold text-ink-black">
                         ${product.priceUSD}
                       </span>
-                      <span className="text-[11px] font-mono text-seoul-concrete ml-2">
-                        / ₩{product.priceKRW.toLocaleString()}
+                      <span className="text-[11px] font-mono text-seoul-concrete ml-2" suppressHydrationWarning>
+                        / ₩{formatKRW(product.priceKRW)}
                       </span>
                     </div>
                     {product.limitedStock && (

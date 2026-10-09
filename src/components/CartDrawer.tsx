@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CoffeeProduct } from '@/data/coffeeData';
+import { CoffeeProduct, formatKRW } from '@/data/coffeeData';
 import Image from 'next/image';
 import { X, Plus, Minus, Trash2, ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -147,8 +147,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     </p>
                     <div className="font-mono text-xs font-bold text-ink-black">
                       ${item.product.priceUSD * item.quantity}
-                      <span className="text-[10px] text-seoul-concrete ml-1">
-                        / ₩{(item.product.priceKRW * item.quantity).toLocaleString()}
+                      <span className="text-[10px] text-seoul-concrete ml-1" suppressHydrationWarning>
+                        / ₩{formatKRW(item.product.priceKRW * item.quantity)}
                       </span>
                     </div>
 
@@ -190,7 +190,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <div className="space-y-1.5">
                 <div className="flex justify-between text-seoul-concrete">
                   <span>{lang === 'EN' ? 'Subtotal' : '상품 합계'}</span>
-                  <span>${totalUSD} / ₩{totalKRW.toLocaleString()}</span>
+                  <span suppressHydrationWarning>${totalUSD} / ₩{formatKRW(totalKRW)}</span>
                 </div>
                 <div className="flex justify-between text-seoul-concrete">
                   <span>{lang === 'EN' ? 'Bojagi Fabric Gift Wrap' : '친환경 보자기 포장'}</span>
@@ -198,7 +198,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
                 <div className="flex justify-between font-bold text-sm text-ink-black border-t border-seoul-concrete/30 pt-2 font-serif">
                   <span>{lang === 'EN' ? 'Total (USD / KRW)' : '최종 결제 금액'}</span>
-                  <span>${totalUSD} / ₩{totalKRW.toLocaleString()}</span>
+                  <span suppressHydrationWarning>${totalUSD} / ₩{formatKRW(totalKRW)}</span>
                 </div>
               </div>
 

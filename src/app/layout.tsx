@@ -51,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${notoSerifKR.variable} ${jakarta.variable}`}>
-      <body className="min-h-screen bg-warm-ivory text-ink-black antialiased selection:bg-korean-red selection:text-white">
+    <html lang="en" className={`${playfair.variable} ${notoSerifKR.variable} ${jakarta.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-warm-ivory text-ink-black antialiased selection:bg-korean-red selection:text-white" suppressHydrationWarning>
         {children}
       </body>
     </html>
